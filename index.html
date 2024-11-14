@@ -1,23 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Pascal's Triangle</title>
-  <style>
-    /* You can add CSS styles here to customize the appearance */
-    table {
-      border-collapse: collapse;
-    }
-    td {
-      border: 1px solid black;
-      padding: 5px;
-      text-align: center;
-    }
-  </style>
+  <title>Dynamic Pascal's Triangle</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>Pascal's Triangle</h1>
-  <table id="pascal-triangle"></table>
-
+  <label for="startValue">Starting Value:</label>
+  <input type="number" id="startValue" value="1">
+  <label for="minRows">Minimum Rows:</label>
+  <input type="number" id="minRows" value="3">
+  <label for="maxRows">Maximum Rows:</label>
+  <input type="number" id="maxRows" value="10">
+  <button onclick="generateTriangle()">Generate</button>
+  <table id="pascalTriangle"></table>
   <script src="script.js"></script>
 </body>
 </html>
