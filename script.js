@@ -1,5 +1,18 @@
 function generatePascalTriangle(numRows, startValue) {
-  // ... Your Pascal's triangle generation function ...
+  const triangle = [[startValue]];
+
+  for (let i = 1; i < numRows; i++) {
+    const row = [startValue];
+
+    for (let j = 1; j <= i - 1; j++) {
+      row.push(triangle[i - 1][j - 1] + triangle[i - 1][j]);
+    }
+
+    row.push(startValue);
+    triangle.push(row);
+  }
+
+  return triangle;
 }
 
 function generateTriangle() {
