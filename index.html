@@ -1,18 +1,93 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Pascal's Triangle</title>
-  <link rel="stylesheet" href="style.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pascal's Triangle</title>
+<style>
+  /* Dark theme for the page */
+  body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 1em;
+    background-color: black;
+    color: white;
+  }
+
+  /* Container Styling */
+  .container {
+    max-width: 600px;
+    width: 100%;
+    padding: 1.5em;
+    background: #333;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(255, 255, 255, 0.1);
+  }
+
+  /* Input and Button Styling */
+  input, button {
+    width: 100%;
+    padding: 0.8em;
+    margin: 0.5em 0;
+    font-size: 1em;
+    border: 1px solid white;
+    border-radius: 4px;
+    background: #222;
+    color: white;
+  }
+
+  /* Button Hover Effect */
+  button {
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    border: none;
+  }
+
+  button:hover {
+    background-color: #0056b3;
+  }
+
+  /* Table Styling */
+  table {
+    border-collapse: collapse;
+    margin: 20px auto;
+    width: 100%;
+    color: white;
+    border: 1px solid white;
+  }
+
+  td {
+    border: 1px solid white;
+    padding: 5px;
+    text-align: center;
+  }
+
+  /* Responsive Adjustments */
+  @media (max-width: 600px) {
+    .container {
+      padding: 1em;
+    }
+    input, button {
+      font-size: 1em;
+    }
+  }
+</style>
 </head>
 <body>
-  <label for="startValue">Starting Value:</label>
-  <input type="number" id="startValue" value="1">
-  <label for="minRows">Minimum Rows:</label>
-  <input type="number" id="minRows" value="3">
-  <label for="maxRows">Maximum Rows:</label>
-  <input type="number" id="maxRows" value="10">
-  <button onclick="generateTriangle()">Generate</button>
-  <table id="pascalTriangle"></table>
-  <script src="script.js"></script>
+
+<div class="container">
+  <input id="numRows" type="number" placeholder="Number of Rows" />
+  <input id="startValue" type="number" placeholder="Starting Value" />
+  <button id="generateButton">Generate Pascal's Triangle</button>
+  <div id="output"></div>
+</div>
+
+<!-- Link to the external JavaScript file -->
+<script src="script.js"></script>
+
 </body>
 </html>
