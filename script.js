@@ -1,51 +1,55 @@
-// Generates Pascal's Triangle given the number of rows and starting value
-function generatePascalTriangle(numRows, startValue) {
-  const triangle = [[startValue]];  // Initialize with the first row containing the start value
-  for (let i = 1; i < numRows; i++) {
-    const row = [startValue];
-    for (let j = 1; j <= i - 1; j++) {
-      // Each element is the sum of the two elements above it
-      row.push(triangle[i - 1][j - 1] + triangle[i - 1][j]);
+document.addEventListener("DOMContentLoaded", function() {
+  function generatePascalTriangle(numRows, startValue) {
+    const triangle = [[startValue]];
+    for (let i = 1; i < numRows; i++) {
+      const row = [startValue];
+      for (let j = 1; j <= i - 1; j++) {
+        row.push(triangle[i - 1][j - 1] + triangle[i - 1][j]);
+      }
+      row.push(startValue);
+      triangle.push(row);
     }
-    row.push(startValue);  // Append the start value to the end of each row
-    triangle.push(row);  // Add the row to the triangle
-  }
-  return triangle;
-}
-
-// Function to generate the triangle and display it on the webpage
-function generateTriangle() {
-  // Get the values from user inputs
-  const numRowsInput = document.getElementById("numRows");
-  const startValueInput = document.getElementById("startValue");
-  
-  const numRows = parseInt(numRowsInput.value, 10);
-  const startValue = parseInt(startValueInput.value, 10);
-  
-  // Validate the inputs
-  if (isNaN(numRows) || numRows <= 0) {
-    alert("Please enter a valid positive number for rows.");
-    return;
-  }
-  if (isNaN(startValue)) {
-    alert("Please enter a valid number for the starting value.");
-    return;
+    return triangle;
   }
 
-  // Generate the Pascal's Triangle
-  const triangle = generatePascalTriangle(numRows, startValue);
+  function generateTriangle() {
+    const numRowsInput = document.getElementById("numRows");
+    const startValueInput = document.getElementById("startValue");
 
-  // Display the triangle on the webpage
-  const outputDiv = document.getElementById("output");
-  outputDiv.innerHTML = "";  // Clear previous output
+    const numRows = parseInt(numRowsInput.value, 10);
+    const startValue = parseInt(startValueInput.value, 10);
 
-  // Format and display each row
-  triangle.forEach(row => {
-    const rowDiv = document.createElement("div");
-    rowDiv.textContent = row.join(" ");  // Join row elements with spaces
-    outputDiv.appendChild(rowDiv);  // Append each row to the output div
-  });
-}
+    if (isNaN(numRows) || numRows <= 0) {
+      alert("Please enter a valid positive number for rows.");
+      return;
+    }
+    if (isNaN(startValue)) {
+      alert("Please enter a valid number for the starting value.");
+      return;
+    }
 
-// Attach the generateTriangle function to the button's click event
-document.getElementById("generateButton").onclick = generateTriangle;
+    const triangle = generatePascalTriangle(numRows, startValue);
+
+    const outputDiv = document.getElementById("output");
+    outputDiv.innerHTML = "";  // Clear previous output
+
+    triangle.forEach((row, rowIndex) => {
+      const rowDiv = document.createElement("div");
+      rowDiv.classList.add("triangle-row");
+
+      // Add spacing at the start of each row to center it
+      rowDiv.style.paddingLeft = `${(numRows - rowIndex) * 0.5}em`;
+
+      row.forEach(value => {
+        const cell = document.createElement("span");
+        cell.classList.add("triangle-cell");
+        cell.textContent = value;
+        rowDiv.appendChild(cell);
+      });
+
+      outputDiv.appendChild(rowDiv);  // Append the row to the output div
+    });
+  }
+
+  document.getElementById("generateButton").onclick = generateTriangle;
+});
