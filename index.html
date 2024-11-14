@@ -7,87 +7,92 @@
   /* Dark theme for the page */
   body {
     font-family: Arial, sans-serif;
+    background-color: black;
+    color: white;
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
+    height: 100vh;
     margin: 0;
-    padding: 1em;
-    background-color: black;
-    color: white;
   }
 
-  /* Container Styling */
-  .container {
-    max-width: 600px;
-    width: 100%;
-    padding: 1.5em;
-    background: #333;
+  /* Dropdown button styling */
+  .dropdown {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+  }
+
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    top: 40px;
+    right: 0;
+    background-color: #333;
+    padding: 1em;
     border-radius: 8px;
     box-shadow: 0px 4px 8px rgba(255, 255, 255, 0.1);
   }
 
-  /* Input and Button Styling */
-  input, button {
-    width: 100%;
-    padding: 0.8em;
-    margin: 0.5em 0;
-    font-size: 1em;
-    border: 1px solid white;
-    border-radius: 4px;
-    background: #222;
-    color: white;
-  }
-
-  /* Button Hover Effect */
-  button {
+  .dropdown button {
     background-color: #007bff;
     color: white;
-    cursor: pointer;
+    padding: 0.5em;
     border: none;
+    border-radius: 4px;
+    cursor: pointer;
   }
 
-  button:hover {
-    background-color: #0056b3;
-  }
-
-  /* Table Styling */
-  table {
-    border-collapse: collapse;
-    margin: 20px auto;
+  .dropdown-content input,
+  .dropdown-content button {
     width: 100%;
+    padding: 0.5em;
+    margin: 0.3em 0;
+    background: #222;
+    border: 1px solid white;
     color: white;
-    border: 1px solid white;
+    border-radius: 4px;
   }
 
-  td {
-    border: 1px solid white;
-    padding: 5px;
+  /* Show dropdown content on hover */
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+
+  /* Center the triangle output */
+  #output {
     text-align: center;
+    line-height: 1.6em;
+    font-family: monospace;
   }
 
-  /* Responsive Adjustments */
-  @media (max-width: 600px) {
-    .container {
-      padding: 1em;
-    }
-    input, button {
-      font-size: 1em;
-    }
+  /* Triangle style */
+  .triangle-row {
+    display: flex;
+    justify-content: center;
+  }
+
+  .triangle-cell {
+    padding: 0 0.3em;
   }
 </style>
 </head>
 <body>
 
-<div class="container">
-  <input id="numRows" type="number" placeholder="Number of Rows" />
-  <input id="startValue" type="number" placeholder="Starting Value" />
-  <button id="generateButton">Generate Pascal's Triangle</button>
-  <div id="output"></div>
+<!-- Dropdown menu for input controls -->
+<div class="dropdown">
+  <button>Settings</button>
+  <div class="dropdown-content">
+    <input id="numRows" type="number" placeholder="Number of Rows" />
+    <input id="startValue" type="number" placeholder="Starting Value" />
+    <button id="generateButton">Generate Pascal's Triangle</button>
+  </div>
 </div>
 
-<!-- Link to the external JavaScript file -->
-<script src="script.js"></script>
+<!-- Pascal's Triangle output -->
+<div id="output"></div>
 
+<script src="script.js"></script>
 </body>
 </html>
+
