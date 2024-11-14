@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", function() {
+  // Function to generate Pascal's Triangle
   function generatePascalTriangle(numRows, startValue) {
     const triangle = [[startValue]];
     for (let i = 1; i < numRows; i++) {
@@ -12,6 +13,7 @@ document.addEventListener("DOMContentLoaded", function() {
     return triangle;
   }
 
+  // Function to generate and display the triangle based on user input
   function generateTriangle() {
     const numRowsInput = document.getElementById("numRows");
     const startValueInput = document.getElementById("startValue");
@@ -51,6 +53,7 @@ document.addEventListener("DOMContentLoaded", function() {
     });
   }
 
+  // Function to randomize the starting value
   function randomizeStartValue() {
     const startValueInput = document.getElementById("startValue");
     // Generate a random start value between 1 and 10 (you can adjust the range)
@@ -58,6 +61,7 @@ document.addEventListener("DOMContentLoaded", function() {
     generateTriangle(); // Regenerate the triangle with the random start value
   }
 
+  // Event listeners for the buttons
   document.getElementById("generateButton").onclick = generateTriangle;
   document.getElementById("randomizeButton").onclick = randomizeStartValue;
 });
