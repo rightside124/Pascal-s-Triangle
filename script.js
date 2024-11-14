@@ -66,10 +66,10 @@ document.addEventListener("DOMContentLoaded", function() {
   const dropdownContent = document.querySelector(".dropdown-content");
   dropdownButton.addEventListener("click", function() {
     // Toggle visibility of dropdown content
-    if (dropdownContent.style.display === "block") {
-      dropdownContent.style.display = "none";
-    } else {
+    if (dropdownContent.style.display === "none" || dropdownContent.style.display === "") {
       dropdownContent.style.display = "block";
+    } else {
+      dropdownContent.style.display = "none";
     }
   });
 
