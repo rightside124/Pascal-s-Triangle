@@ -61,6 +61,18 @@ document.addEventListener("DOMContentLoaded", function() {
     generateTriangle(); // Regenerate the triangle with the random start value
   }
 
+  // Toggle dropdown visibility when button is clicked
+  const dropdownButton = document.getElementById("dropdownButton");
+  const dropdownContent = document.querySelector(".dropdown-content");
+  dropdownButton.addEventListener("click", function() {
+    // Toggle visibility of dropdown content
+    if (dropdownContent.style.display === "block") {
+      dropdownContent.style.display = "none";
+    } else {
+      dropdownContent.style.display = "block";
+    }
+  });
+
   // Event listeners for the buttons
   document.getElementById("generateButton").onclick = generateTriangle;
   document.getElementById("randomizeButton").onclick = randomizeStartValue;
