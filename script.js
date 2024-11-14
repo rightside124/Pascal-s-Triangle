@@ -51,5 +51,13 @@ document.addEventListener("DOMContentLoaded", function() {
     });
   }
 
+  function randomizeStartValue() {
+    const startValueInput = document.getElementById("startValue");
+    // Generate a random start value between 1 and 10 (you can adjust the range)
+    startValueInput.value = Math.floor(Math.random() * 10) + 1;
+    generateTriangle(); // Regenerate the triangle with the random start value
+  }
+
   document.getElementById("generateButton").onclick = generateTriangle;
+  document.getElementById("randomizeButton").onclick = randomizeStartValue;
 });
