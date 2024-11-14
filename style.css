@@ -1,11 +1,16 @@
-/* Add your desired CSS styles here */
+body {
+  background-color: black;
+  color: white;
+}
+
 table {
   border-collapse: collapse;
   margin: 20px;
+  border: 1px solid white;
 }
 
 td {
-  border: 1px solid black;
+  border: 1px solid white;
   padding: 5px;
   text-align: center;
 }
