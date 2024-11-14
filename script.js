@@ -1,24 +1,25 @@
-function generatePascalTriangle(numRows, startValue = 1) {
-  // ... Your Pascal's triangle generation function from before ...
+function generatePascalTriangle(numRows, startValue) {
+  // ... Your Pascal's triangle generation function ...
 }
 
-// Get the table element
-const pascalTriangleTable = document.getElementById('pascal-triangle');
+function generateTriangle() {
+  const startValue = parseInt(document.getElementById("startValue").value);
+  const minRows = parseInt(document.getElementById("minRows").value);
+  const maxRows = parseInt(document.getElementById("maxRows").value);
 
-// Get the desired number of rows and start value (you can customize this)
-const numRows = 5;
-const startValue = 2;
+  const triangle = generatePascalTriangle(maxRows, startValue);
 
-// Generate the Pascal's triangle
-const triangle = generatePascalTriangle(numRows, startValue);
+  const pascalTriangleTable = document.getElementById("pascalTriangle");
+  pascalTriangleTable.innerHTML = ""; // Clear the table
 
-// Create table rows and cells
-triangle.forEach(row => {
-  const tableRow = document.createElement('tr');
-  row.forEach(value => {
-    const tableCell = document.createElement('td');
-    tableCell.textContent = value;
-    tableRow.appendChild(tableCell);
-  });
-  pascalTriangleTable.appendChild(tableRow);
-});
+  for (let i = minRows - 1; i < maxRows; i++) {
+    const row = triangle[i];
+    const tableRow = document.createElement("tr");
+    for (let j = 0; j <= i; j++) {
+      const cell = document.createElement("td");
+      cell.textContent = row[j];
+      tableRow.appendChild(cell);
+    }
+    pascalTriangleTable.appendChild(tableRow);
+  }
+}
