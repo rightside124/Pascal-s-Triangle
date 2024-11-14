@@ -77,3 +77,4 @@ document.addEventListener("DOMContentLoaded", function() {
   document.getElementById("generateButton").onclick = generateTriangle;
   document.getElementById("randomizeButton").onclick = randomizeStartValue;
 });
+
