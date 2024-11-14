@@ -14,56 +14,58 @@
     align-items: center;
     height: 100vh;
     margin: 0;
+    padding: 0;
   }
 
-  /* Dropdown button styling */
+  /* Container for the dropdown button and content */
   .dropdown {
     position: absolute;
     top: 20px;
     right: 20px;
-  }
-
-  .dropdown-content {
-    display: none;
-    position: absolute;
-    top: 40px;
-    right: 0;
-    background-color: #333;
-    padding: 1em;
-    border-radius: 8px;
-    box-shadow: 0px 4px 8px rgba(255, 255, 255, 0.1);
+    width: 250px;
   }
 
   .dropdown button {
     background-color: #007bff;
     color: white;
-    padding: 0.5em;
+    padding: 1em;
+    width: 100%;
     border: none;
     border-radius: 4px;
     cursor: pointer;
+    text-align: left;
+    font-size: 16px;
+  }
+
+  /* Styling for the dropdown content */
+  .dropdown-content {
+    display: none;
+    background-color: #333;
+    padding: 1em;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(255, 255, 255, 0.1);
+    margin-top: 10px;
   }
 
   .dropdown-content input,
   .dropdown-content button {
     width: 100%;
-    padding: 0.5em;
-    margin: 0.3em 0;
+    padding: 1em;
+    margin: 0.5em 0;
     background: #222;
     border: 1px solid white;
     color: white;
     border-radius: 4px;
+    font-size: 16px;
   }
 
-  /* Show dropdown content on hover */
-  .dropdown:hover .dropdown-content {
-    display: block;
-  }
-
-  /* Center the triangle output */
+  /* Larger GUI settings */
   #output {
     text-align: center;
-    line-height: 1.6em;
+    line-height: 2em;
     font-family: monospace;
+    margin-top: 2em;
+    font-size: 18px;
   }
 
   /* Triangle style */
@@ -73,20 +75,20 @@
   }
 
   .triangle-cell {
-    padding: 0 0.3em;
+    padding: 0 0.5em;
   }
 </style>
 </head>
 <body>
 
-<!-- Dropdown menu for input controls -->
+<!-- Dropdown button for showing settings -->
 <div class="dropdown">
-  <button>Settings</button>
+  <button id="dropdownButton">Settings</button>
   <div class="dropdown-content">
     <input id="numRows" type="number" placeholder="Number of Rows" />
     <input id="startValue" type="number" placeholder="Starting Value" />
     <button id="generateButton">Generate Pascal's Triangle</button>
-    <button id="randomizeButton">Randomize Start Value</button> <!-- New button for randomizing start value -->
+    <button id="randomizeButton">Randomize Start Value</button> <!-- Randomize button -->
   </div>
 </div>
 
